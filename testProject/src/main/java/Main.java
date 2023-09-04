@@ -1,13 +1,14 @@
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         System.out.println("Введите выражение для вычисления");
         Scanner scanner = new Scanner(System.in);
         String expression = scanner.nextLine();
         System.out.println(calc(expression));
+        scanner.close();
     }
-    public static String calc(String input){
+    public static String calc(String input) throws Exception {
         int a = 0;
         int b = 0;
         int c = 0;
@@ -32,7 +33,7 @@ public class Main {
                 b = Integer.parseInt(array[2]);
             }
             if((aIsRoman && !bIsRoman) || (!aIsRoman  && bIsRoman) || a > 10 || b > 10 || a < 1 || b < 1 || array.length > 3) {
-                System.out.println("throws Exception 4");
+                throw new Exception("throws Exception 4");
             } else {
                 if (array[1].equals("+")){
                     c = a + b;
@@ -43,20 +44,20 @@ public class Main {
                 } else if(array[1].equals("/")){
                     c = a / b;
                 } else {
-                    System.out.println("throws Exception 3");//Не верный знак операции
+                    throw new Exception("throws Exception 3");//Не верный знак операции
                 }
                 if (aIsRoman && bIsRoman) {
                     if (c > 0){
                         result = intToRome(c);
                     } else {
-                        System.out.println("throws Exception 2");//отрицательное Римское число
+                        throw new Exception("throws Exception 2");//отрицательное Римское число
                     }
                 } else {
                     result = String.valueOf(c);
                 }
             }
         } catch(Exception ex) {
-            System.out.println("throws Exception 1");
+            throw new Exception("throws Exception 1");
         }
         return result;
     }
