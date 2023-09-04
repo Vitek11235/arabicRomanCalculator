@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -7,6 +8,7 @@ public class Main {
         String expression = scanner.nextLine();
         System.out.println(calc(expression));
         scanner.close();
+//        System.out.println(RomanNumeral2.romanToArabic("IC"));
     }
     public static String calc(String input) throws Exception {
         int a = 0;
@@ -48,7 +50,7 @@ public class Main {
                 }
                 if (aIsRoman && bIsRoman) {
                     if (c > 0){
-                        result = intToRome(c);
+                        result = RomanNumeral.intToRome(c);
                     } else {
                         throw new Exception("throws Exception 2");//отрицательное Римское число
                     }
@@ -60,14 +62,5 @@ public class Main {
             throw new Exception("throws Exception 1");
         }
         return result;
-    }
-    public static String intToRome(int num) {
-        String romeNumber = "";
-        for (RomanNumeral roman : RomanNumeral.values()){
-            if (roman.getValue() == num) {
-                romeNumber = roman.getKey();
-            }
-        }
-        return romeNumber;
     }
 }

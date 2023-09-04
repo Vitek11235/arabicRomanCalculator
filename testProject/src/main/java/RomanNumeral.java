@@ -35,4 +35,14 @@ enum RomanNumeral {
     public String getKey() {
         return key;
     }
+
+    public static String intToRome(int num) {
+        String romeNumber = "";
+        for (RomanNumeral roman : RomanNumeral.values()){
+            if (roman.getValue() == num) {
+                romeNumber = roman.getKey();
+            }
+        }
+        return romeNumber;
+    }
 }
