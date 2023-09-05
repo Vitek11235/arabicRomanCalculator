@@ -39,6 +39,8 @@ enum RomanNumeral2 {
                     blockD = false;
                     minusCount++;
                     result -= convert(ch[i-1]);
+                } else {
+                    System.out.println("Ошибка ввода символов");
                 }
             }
         }
@@ -53,9 +55,94 @@ enum RomanNumeral2 {
         for (int i = 0; i < RomanNumeral2.values().length; i++) {
             if (RomanNumeral2.values()[i].toString().equals(String.valueOf(ch))){
                 result = RomanNumeral2.values()[i].getValue();
+                break;
             }
         }
         return result;
+    }
+
+    public static String arabicToRoman(int num) {
+        int len = String.valueOf(num).length();
+        char[] ch = String.valueOf(num).toCharArray();
+        int str;
+        String stringResult = "";
+        for (int i = 1; i <= len; i++) {
+            str = Integer.parseInt(String.valueOf(ch[len - i]));
+            switch (str) {
+                case 0: ;
+                    break;
+                case 1:
+                    if (i == 1) {
+                        stringResult = RomanNumeral2.I.toString() + stringResult;
+                    } else if(i == 2) {
+                        stringResult = RomanNumeral2.X.toString() + stringResult;
+                    } else if (i == 3) {
+                        stringResult = RomanNumeral2.C.toString() + stringResult;
+                    };
+                    break;
+                case 2:
+                    if (i == 1) {
+                        stringResult = RomanNumeral2.I.toString().repeat(2) + stringResult;
+                    } else if(i == 2) {
+                        stringResult = RomanNumeral2.X.toString().repeat(2) + stringResult;
+                    } else if (i == 3) {
+                        stringResult = RomanNumeral2.C.toString().repeat(2) + stringResult;
+                    };
+                    break;
+                case 3:
+                    if (i == 1) {
+                        stringResult = RomanNumeral2.I.toString().repeat(3) + stringResult;
+                    } else if(i == 2) {
+                        stringResult = RomanNumeral2.X.toString().repeat(3) + stringResult;
+                    } else if (i == 3) {
+                        stringResult = RomanNumeral2.C.toString().repeat(3) + stringResult;
+                    };
+                    break;
+                case 4:
+                    if (i == 1) {
+                        stringResult = RomanNumeral2.I.toString() + RomanNumeral2.V.toString() + stringResult;
+                    } else if(i == 2) {
+                        stringResult = RomanNumeral2.X.toString() + RomanNumeral2.L.toString() + stringResult;
+                    };
+                    break;
+                case 5:
+                    if (i == 1) {
+                        stringResult = RomanNumeral2.V.toString() + stringResult;
+                    } else if(i == 2) {
+                        stringResult = RomanNumeral2.L.toString() + stringResult;
+                    };
+                    break;
+                case 6:
+                    if (i == 1) {
+                        stringResult = RomanNumeral2.V.toString() + RomanNumeral2.I.toString() + stringResult;
+                    } else if(i == 2) {
+                        stringResult = RomanNumeral2.L.toString() + RomanNumeral2.X.toString() + stringResult;
+                    };
+                    break;
+                case 7:
+                    if (i == 1) {
+                        stringResult = RomanNumeral2.V.toString() + RomanNumeral2.I.toString().repeat(2) + stringResult;
+                    } else if(i == 2) {
+                        stringResult = RomanNumeral2.L.toString() + RomanNumeral2.X.toString().repeat(2) + stringResult;
+                    };
+                    break;
+                case 8:
+                    if (i == 1) {
+                        stringResult = RomanNumeral2.V.toString() + RomanNumeral2.I.toString().repeat(3) + stringResult;
+                    } else if(i == 2) {
+                        stringResult = RomanNumeral2.L.toString() + RomanNumeral2.X.toString().repeat(3) + stringResult;
+                    };
+                    break;
+                case 9:
+                    if (i == 1) {
+                        stringResult = RomanNumeral2.I.toString() + RomanNumeral2.X.toString() + stringResult;
+                    } else if(i == 2) {
+                        stringResult = RomanNumeral2.X.toString() + RomanNumeral2.C.toString() + stringResult;
+                    };
+                    break;
+            }
+        }
+        return stringResult;
     }
 }
 
