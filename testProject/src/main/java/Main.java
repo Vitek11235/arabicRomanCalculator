@@ -100,17 +100,6 @@ public class Main {
                     bIsRoman = true;
                 }
             }
-
-//            for (RomanNumeral roman : RomanNumeral.values()){
-//                if (array[0].equals(roman.toString())) {
-//                    a = roman.getValue();
-//                    aIsRoman = true;
-//                }
-//                if (array[2].equals(roman.toString())) {
-//                    b = roman.getValue();
-//                    bIsRoman = true;
-//                }
-//            }
             if (!aIsRoman  && !bIsRoman){
                 a = Integer.parseInt(array[0]);
                 b = Integer.parseInt(array[2]);
